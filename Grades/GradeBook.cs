@@ -18,9 +18,9 @@ namespace Grades
 
         public void AddGrade(float grade)
         {
-            grades.Add(grade);
+            grades.Add(grade); 
         }
-
+         
         public GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
