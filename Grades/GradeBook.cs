@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,33 +26,44 @@ namespace Grades
             get { return _name; }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (String.IsNullOrEmpty(value))
                 {
-                    if(_name != value)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
+                    throw new ArgumentException("Name cannot be null or empty.");
+                }
 
-                        NameChanged(this, args);
-                    }
+                if (_name != value)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
 
-                    _name = value;
-                }        
+                    NameChanged(this, args);
+                }
+
+                _name = value;
+
+            }
+        }
+
+        public void WriteGrades(TextWriter destination)
+        {
+            foreach (float grade in grades)
+            {
+                destination.WriteLine(grade);
             }
         }
 
         public void AddGrade(float grade)
         {
-            grades.Add(grade); 
+            grades.Add(grade);
         }
-         
+
         public GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
 
             float sum = 0;
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
                 stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);

@@ -15,12 +15,23 @@ namespace Grades
             // += allows for multiple methods to be added to event/delegate book.NameChanged.
             book.NameChanged += new NameChangedDelegate(OnNameChanged);
 
-            book.Name = "Alberto's Grade Book";
-            //book.Name = "Grade Book";
+            //book.Name = "Alberto's Grade Book";
+            //book.Name = null; // Uncomment to throw ArguementException in GradeBook Name property
+
+            try // Exception Handling
+            {
+                Console.WriteLine("Enter a grade book name: ");
+                book.Name = Console.ReadLine();
+            }
+            catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             book.AddGrade(85);
             book.AddGrade(76.4f);
             book.AddGrade(59);
-
+            book.WriteGrades(Console.Out);
             GradeStatistics stats = book.ComputeStatistics();
 
             WriteResult("Average", stats.AverageGrade);
