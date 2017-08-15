@@ -12,9 +12,11 @@ namespace Grades
         {
             GradeBook book = new GradeBook();
 
-            book.NameChanged = new NameChangedDelegate(OnNameChanged);
+            // += allows for multiple methods to be added to event/delegate book.NameChanged.
+            book.NameChanged += new NameChangedDelegate(OnNameChanged);
 
             book.Name = "Alberto's Grade Book";
+            //book.Name = "Grade Book";
             book.AddGrade(85);
             book.AddGrade(76.4f);
             book.AddGrade(59);
@@ -31,9 +33,9 @@ namespace Grades
             Console.WriteLine(description + ": " + result);
         }
 
-        static void OnNameChanged(string existingName, string newName)
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine($"The book has changed from {existingName} to {newName}");
+            Console.WriteLine($"The book has changed from {args.ExistingName} to {args.NewName}");
         }
     }
 }
