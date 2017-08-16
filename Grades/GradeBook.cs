@@ -10,9 +10,9 @@ namespace Grades
 {
     public class GradeBook
     {
-        private List<float> grades;
-        private string _name;
-        public event NameChangedDelegate NameChanged;
+        protected List<float> grades; // Protected, can be used by this class, or inheriting class.
+        private string _name;   // Private, can be used by this class.
+        public event NameChangedDelegate NameChanged; // Public, can be used by anyone.
 
         public GradeBook()
         {
@@ -58,7 +58,7 @@ namespace Grades
             grades.Add(grade);
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
 
