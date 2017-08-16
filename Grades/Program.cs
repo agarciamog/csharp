@@ -21,6 +21,12 @@ namespace Grades
         private static void ShowGrades(IGradeTracker book)
         {
             GradeStatistics stats = book.ComputeStatistics();
+
+            foreach (float grade in book)
+            {
+                Console.WriteLine(grade);
+            }
+
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Highest", stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);

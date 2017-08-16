@@ -1,8 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 
 namespace Grades
 {
-    public interface IGradeTracker
+    public interface IGradeTracker : IEnumerable
     {
         string Name { get; set; }
         void WriteGrades(TextWriter destination);

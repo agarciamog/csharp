@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,6 +46,11 @@ namespace Grades
             stats.AverageGrade = sum / grades.Count();
 
             return stats;
+        }
+
+        public override IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
         }
     }
 }
