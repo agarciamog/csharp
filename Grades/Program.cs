@@ -13,7 +13,7 @@ namespace Grades
             GradeBook book = new GradeBook();
 
             // += allows for multiple methods to be added to event/delegate book.NameChanged.
-            book.NameChanged += new NameChangedDelegate(OnNameChanged);
+            book.NameChanged += new NameChangedDelegate(OnNameChanged); // comment out to fire NullReferenceException
 
             //book.Name = "Alberto's Grade Book";
             //book.Name = null; // Uncomment to throw ArguementException in GradeBook Name property
@@ -26,6 +26,10 @@ namespace Grades
             catch(ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Null Reference Exception");
             }
 
             book.AddGrade(85);
