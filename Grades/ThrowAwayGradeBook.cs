@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    class ThrowAwayGradeBook : GradeBook
+    public class ThrowAwayGradeBook : GradeBook
     {
 
         public override GradeStatistics ComputeStatistics()

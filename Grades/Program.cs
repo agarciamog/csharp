@@ -11,14 +11,14 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book = new ThrowAwayGradeBook();
+            IGradeTracker book = new ThrowAwayGradeBook();
             //GetBookName(book);
             AddGrades(book);
             WriteGradesToFile(book);
             ShowGrades(book);
         }
 
-        private static void ShowGrades(GradeBook book)
+        private static void ShowGrades(IGradeTracker book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
@@ -26,7 +26,7 @@ namespace Grades
             WriteResult("Lowest", stats.LowestGrade);
         }
 
-        private static void WriteGradesToFile(GradeBook book)
+        private static void WriteGradesToFile(IGradeTracker book)
         {
             StreamWriter outputFile = File.CreateText("grades.txt");
             try
@@ -41,14 +41,14 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(GradeBook book)
+        private static void AddGrades(IGradeTracker book)
         {
             book.AddGrade(85);
             book.AddGrade(76.4f);
             book.AddGrade(59);
         }
 
-        private static void GetBookName(GradeBook book)
+        private static void GetBookName(GradeTracker book)
         {
             // += allows for multiple methods to be added to event/delegate book.NameChanged.
             book.NameChanged += new NameChangedDelegate(OnNameChanged); // comment out to fire NullReferenceException
