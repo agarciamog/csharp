@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Grades
+namespace CSharp
 {
     public class GradeBook : GradeTracker
     {

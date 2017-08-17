@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.IO;
 
-namespace Grades
+namespace CSharp
 {
     public interface IGradeTracker : IEnumerable
     {

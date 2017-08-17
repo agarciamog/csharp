@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grades
+namespace CSharp
 {
     public abstract class GradeTracker : IGradeTracker
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grades
+namespace CSharp
 {
     public class ThrowAwayGradeBook : GradeBook
     {

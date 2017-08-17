@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grades;
+using CSharp;
 
-namespace Grades.Test
+namespace CSharp.Test
 {
     [TestClass]
     public class GradeBookTests
